@@ -1,0 +1,142 @@
+:root {
+    /* Primary */
+    --dark-cyan: hsl(184, 100%, 22%);
+    --bright-orange: hsl(31, 77%, 52%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+
+    /* Neutral */
+    --transparent-white: hsla(0, 0%, 100%, 0.75); /*Paragraphs*/
+    --very-light-gray: hsl(0, 0%, 95%); /*background, headings, buttons*/
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--very-light-gray);
+    font-family: 'Lexend Deca', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    padding: 15% 5% 15% 5%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.column {
+    color: var(--transparent-white);
+    padding: 10vw;
+}
+
+#Sedans {
+    background-color: var(--bright-orange);
+    border-radius: 10px 10px 0 0;
+}
+
+#SUVs {
+    background-color: var(--dark-cyan);
+}
+
+#Luxury {
+    background-color: var(--very-dark-cyan);
+    border-radius: 0 0 10px 10px;
+}
+
+button {
+    background-color: var(--very-light-gray);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 100px;
+    margin-top: 10vw;
+}
+
+#button1 {
+    color: var(--bright-orange);
+    border: 2px solid var(--bright-orange);
+}
+
+#button1:hover {
+    background-color: var(--bright-orange);
+    color: var(--very-light-gray);
+    border: 2px solid var(--very-light-gray);
+}
+
+#button2 {
+    color: var(--dark-cyan);
+    border: 2px solid var(--dark-cyan);
+}
+
+#button2:hover {
+    background-color: var(--dark-cyan);
+    color: var(--very-light-gray);
+    border: 2px solid var(--very-light-gray);
+}
+
+#button3 {
+    color: var(--very-dark-cyan);
+    border: 2px solid var(--very-dark-cyan);
+}
+
+#button3:hover {
+    background-color: var(--very-dark-cyan);
+    color: var(--very-light-gray);
+    border: 2px solid var(--very-light-gray);
+}
+
+h1 {
+    font-family: 'Big Shoulders Display', cursive;
+    text-transform: uppercase;
+    color: var(--very-light-gray);
+    margin: 10vw 0 10vw 0;
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        height: 100vh;
+        width: auto;
+        padding: 5% 18% 5% 18%;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .column {
+        padding: 7vh;
+    }
+
+    #Sedans {
+        border-radius: 10px 0 0 10px;
+    }
+
+    #Luxury {
+        border-radius: 0 10px 10px 0;
+    }
+
+    button {
+        margin-top: 10vh;
+    }
+
+    h1 {
+        margin: 5vh 0 5vh 0;
+    }
+}
