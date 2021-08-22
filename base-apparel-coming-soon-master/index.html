@@ -1,33 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
   <title>Frontend Mentor | Base Apparel coming soon page</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
 
-  We're coming soon
+  <div class="container">
 
-  Hello fellow shoppers! We're currently building our new fashion store. 
-  Add your email below to stay up-to-date with announcements and our launch deals.
+    <div class="logo">
+      <img src="images\logo.svg" alt="Base Apparel Logo">
+    </div>
 
-  Email Address
-  
+    <div class="image-container">
+      <picture>
+        <source media="(min-width: 768px)" srcset="images\hero-desktop.jpg">
+        <img class="hero-image" src="images\hero-mobile.jpg" alt="Hero Image">
+      </picture>
+    </div>
+
+    <div class="main-content">
+      <h1 class="main-heading"><span>We're</span><br>coming soon</h1>
+      <p class="main-text">
+        Hello fellow shoppers! We're currently building our new fashion store.
+        Add your email below to stay up-to-date with announcements and our launch deals.
+      </p>
+      <!-- change to input -->
+      <div class="email">
+        <p>Email Address</p>
+        <div class="button">
+          <img class="icon-error" src="images\icon-error.svg" alt="submit error">
+          <img class="icon-arrow" src="images\icon-arrow.svg" alt="submit arrow">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <footer>
     <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/Anurag-Saraswat-01">Anurag Saraswat</a>.
     </p>
   </footer>
+
 </body>
+
 </html>
