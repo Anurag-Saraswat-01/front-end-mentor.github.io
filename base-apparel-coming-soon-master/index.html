@@ -37,14 +37,15 @@
         Hello fellow shoppers! We're currently building our new fashion store.
         Add your email below to stay up-to-date with announcements and our launch deals.
       </p>
-      <!-- change to input -->
-      <div class="email">
-        <p>Email Address</p>
-        <div class="button">
-          <img class="icon-error" src="images\icon-error.svg" alt="submit error">
-          <img class="icon-arrow" src="images\icon-arrow.svg" alt="submit arrow">
-        </div>
-      </div>
+      <form name="form" onsubmit="return false">
+        <label for="Email"></label>
+        <input type="text" name="email" id="email" value="Email Address">
+        <img id="icon-error" src="images\icon-error.svg" alt="submit error">
+        <label class="submit">
+          <input type="submit" value="" id="submit-button" onclick="Validate(document.form.email)">
+          <img id="icon-arrow" src="images\icon-arrow.svg" alt="submit arrow">
+        </label>
+      </form>
     </div>
 
   </div>
@@ -55,6 +56,8 @@
       Coded by <a href="https://www.frontendmentor.io/profile/Anurag-Saraswat-01">Anurag Saraswat</a>.
     </p>
   </footer>
+
+  <script src="scripts.js"></script>
 
 </body>
 
