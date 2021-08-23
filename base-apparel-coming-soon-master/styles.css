@@ -103,3 +103,41 @@ form {
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+
+@media screen and (min-width: 768px) {
+    .container {
+        /* height: 100vh; */
+        display: grid;
+        grid-template-columns: auto auto;
+        background-image: url("images/bg-pattern-desktop.svg");
+        background-repeat: no-repeat;
+    }
+
+    .logo {
+        height: fit-content;
+        grid-column: 1;
+        grid-row: 1/span 1;
+        border: 2px solid red;
+    }
+
+    .image-container {
+        grid-column: 2;
+        grid-row: 1/span 2;
+    }
+
+    .hero-image {
+        height: 100%;
+        width: auto;
+    }
+
+    .main-content {
+        grid-column: 1;
+        grid-row: 2/span 1;
+        border: 2px solid blue;
+    }
+
+    footer {
+        grid-column: 1/ span 2;
+    }
+    
+}
