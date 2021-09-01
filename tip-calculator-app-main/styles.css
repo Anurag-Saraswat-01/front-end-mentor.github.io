@@ -34,7 +34,7 @@ body {
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    gap: 5%;
     padding: 5%;
     border-radius: 15px;
 }
@@ -121,17 +121,20 @@ body {
 .output-wrapper {
     display: grid;
     grid-template-columns: auto auto;
+    align-items: center;
 }
 
 .output-title p {
     color: var(--light-grayish-cyan-2);
     font-size: 12px;
+    font-weight: 700;
     line-height: 14px;
 }
 
 .output-title p span {
     color: var(--light-grayish-cyan-1);
     font-size: 12px;
+    font-weight: 400;
 }
 
 #tip-value, #total-value {
@@ -157,6 +160,14 @@ body {
     font-weight: 700;
 }
 
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -164,4 +175,51 @@ body {
 
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 5% 20%;
+    }
+
+    .title {
+        padding: 0;
+        margin-bottom: 5%;
+    }
+
+    .calculator {
+        display: flex;
+        flex-direction: row;
+        padding: 2.5%;
+    }
+
+    .input-container {
+        width: 50%;
+        gap: 5vh;
+        padding: 2.5% 0 2.5% 2.5%;
+    }
+
+    .button-wrapper{
+        display: grid;
+        grid-template-columns: 32% 32% 32%;
+        row-gap: 10%;
+        column-gap: 2%;
+    }
+
+    .tip-button, #custom {
+        width: 100%
+    }
+
+    .output-container {
+        width: 50%;
+        padding: 5%;
+    }
+
+    #tip-value, #total-value {
+        font-size: 36px;
+    }
+
+    .reset-button {
+        margin-top: 30%;
+    }
 }

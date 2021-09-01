@@ -28,23 +28,24 @@
           <label for="bill" class="bill-label">Bill</label>
           <br>
           <img src="images/icon-dollar.svg" alt="dollar icon">
-          <input type="number" name="bill" id="bill" placeholder="0" style="color: hsl(183, 100%, 15%) !important">
+          <input type="number" name="bill" id="bill" placeholder="0" style="color: hsl(183, 100%, 15%) !important"
+            onclick="calcCheck()">
         </div>
         <div class="tip-container">
           <label for="tip" class="tip-label">Select Tip %</label>
           <div class="button-wrapper">
             <button type="button" class="tip-button" id="tip-5"
-              onclick="buttonCheck(document.getElementById('tip-5'))">5%</button>
+              onclick="tipCheck(document.getElementById('tip-5'))">5%</button>
             <button type="button" class="tip-button" id="tip-10"
-              onclick="buttonCheck(document.getElementById('tip-10'))">10%</button>
+              onclick="tipCheck(document.getElementById('tip-10'))">10%</button>
             <button type="button" class="tip-button" id="tip-15"
-              onclick="buttonCheck(document.getElementById('tip-15'))">15%</button>
+              onclick="tipCheck(document.getElementById('tip-15'))">15%</button>
             <button type="button" class="tip-button" id="tip-25"
-              onclick="buttonCheck(document.getElementById('tip-25'))">25%</button>
+              onclick="tipCheck(document.getElementById('tip-25'))">25%</button>
             <button type="button" class="tip-button" id="tip-50"
-              onclick="buttonCheck(document.getElementById('tip-50'))">50%</button>
+              onclick="tipCheck(document.getElementById('tip-50'))">50%</button>
             <input type="number" name="custom" id="custom" placeholder="Custom"
-              style="color: hsl(183, 100%, 15%) !important" onclick="buttonCheck(document.getElementById('custom'))">
+              style="color: hsl(183, 100%, 15%) !important" onmouseleave="tipCheck(document.getElementById('custom'))">
           </div>
         </div>
         <div class="people-container">
@@ -52,7 +53,7 @@
           <br>
           <img src="images/icon-person.svg" alt="dollar icon">
           <input type="number" name="people" id="people" placeholder="0" style="color: hsl(183, 100%, 15%) !important"
-            onclick="calculate()">
+            onclick="calcCheck()">
         </div>
       </div>
       <div class="output-container">

@@ -13,9 +13,7 @@ function buttonCheck(current) {
     current.classList.add("active");
 }
 
-function calculate() {
-    var bill = parseFloat(document.calculator.bill.value);
-    var people = parseFloat(document.calculator.people.value);
+function calculate(bill, people) {
     var tipAmount = (tip * bill) / (100 * people);
     var totalAmount = (bill + ((bill * tip) / 100)) / people;
     document.getElementById("tip-value").innerHTML = "$" + tipAmount;
@@ -23,8 +21,20 @@ function calculate() {
     document.getElementsByClassName("reset-button")[0].classList.remove("inactive");
 }
 
+function calcCheck() {
+    var bill = document.calculator.bill.value;
+    var people = document.calculator.people.value;
+    if((bill != "") && (people != "0") && (people != "") && (!isNaN(tip))) {
+        calculate(parseFloat(bill), parseInt(people));
+    }
+}
+
+function tipCheck(current) {
+    buttonCheck(current);
+    calcCheck();
+}
+
 function resetCalculator() {
-    console.log("working");
     document.getElementsByClassName("reset-button")[0].classList.add("inactive");
     document.getElementById("tip-value").innerHTML = "$0.00";
     document.getElementById("total-value").innerHTML = "$0.00";
