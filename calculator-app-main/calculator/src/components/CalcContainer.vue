@@ -1,12 +1,22 @@
 <template>
-  <CalcHeader />
-  <CalcDisplay :value="value.length === 0 ? '0' : valueToString(value)" />
-  <CalcKeypad
-    @update-value="updateValue"
-    @delete-value="deleteValue"
-    @reset-display="resetDisplay"
-    @calculate-result="calculateResult"
-  />
+  <div class="calculator">
+    <CalcHeader />
+    <CalcDisplay
+      :value="
+        value.length === 0
+          ? '0'
+          : value[0] === 'NaN'
+          ? 'Error'
+          : valueToString(value)
+      "
+    />
+    <CalcKeypad
+      @update-value="updateValue"
+      @delete-value="deleteValue"
+      @reset-display="resetDisplay"
+      @calculate-result="calculateResult"
+    />
+  </div>
 </template>
 
 <script>
@@ -24,7 +34,7 @@ export default {
   data() {
     return {
       value: [],
-      decimalFlag: false,
+      continueFlag: false,
     };
   },
   methods: {
@@ -48,16 +58,19 @@ export default {
     },
     // handles update of value arr
     updateValue(char) {
-      if (
+      if (char === "-" && this.value.length === 0) {
+        this.continueFlag = true;
+        this.value.push(char);
+      } else if (
         char === "." ||
-        (this.decimalFlag && !["+", "-", "/", "x", "$"].includes(char))
+        (this.continueFlag && !["+", "-", "/", "x", "$"].includes(char))
       ) {
-        this.decimalFlag = true;
+        this.continueFlag = true;
         const lastElement = this.value.pop();
         const newElement = lastElement.concat(char);
         this.value.push(newElement);
       } else if (["+", "-", "/", "x", "$"].includes(char)) {
-        this.decimalFlag = false;
+        this.continueFlag = false;
         this.value.push(char);
       } else {
         this.value.push(char);
@@ -112,3 +125,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.calculator {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+</style>

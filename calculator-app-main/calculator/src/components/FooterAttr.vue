@@ -21,3 +21,17 @@ export default {
   name: "FooterAttr",
 };
 </script>
+
+<style scoped>
+.attribution {
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: var(--text-primary);
+}
+</style>
