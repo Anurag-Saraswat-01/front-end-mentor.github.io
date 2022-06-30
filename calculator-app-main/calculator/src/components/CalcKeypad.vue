@@ -102,4 +102,10 @@ export default {
   width: 100%;
   border-radius: 0.5rem;
 }
+
+@media screen and (min-width: 1280px) {
+  .keypad {
+    gap: 1.5rem;
+  }
+}
 </style>
