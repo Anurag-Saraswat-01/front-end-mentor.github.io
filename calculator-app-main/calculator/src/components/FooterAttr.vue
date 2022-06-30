@@ -24,14 +24,11 @@ export default {
 
 <style scoped>
 .attribution {
+  color: var(--text-primary);
   text-align: center;
 }
 
 a {
-  color: white;
-}
-
-a:hover {
   color: var(--text-primary);
 }
 </style>

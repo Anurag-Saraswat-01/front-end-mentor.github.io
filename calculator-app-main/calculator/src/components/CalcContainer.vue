@@ -1,6 +1,6 @@
 <template>
   <div class="calculator">
-    <CalcHeader />
+    <CalcHeader @switch-theme="switchTheme" :theme="theme" />
     <CalcDisplay
       :value="
         value.length === 0
@@ -31,6 +31,9 @@ export default {
     CalcDisplay,
     CalcKeypad,
   },
+  props: {
+    theme: Number,
+  },
   data() {
     return {
       value: [],
@@ -38,6 +41,9 @@ export default {
     };
   },
   methods: {
+    switchTheme(val) {
+      this.$emit("switch-theme", val);
+    },
     // converts value arr to a string for display
     valueToString(arr) {
       let value = "";
@@ -58,7 +64,7 @@ export default {
     },
     // handles update of value arr
     updateValue(char) {
-      if (char === "-" && this.value.length === 0) {
+      if ((char === "-" || char === "+") && this.value.length === 0) {
         this.continueFlag = true;
         this.value.push(char);
       } else if (
@@ -79,10 +85,14 @@ export default {
     // resets the calculator
     resetDisplay() {
       this.value = [];
+      this.continueFlag = false;
     },
     // deletes the last element added
     deleteValue() {
-      this.value.pop();
+      const lastElement = this.value.pop();
+      if (["+", "-", "."].includes(lastElement) && this.continueFlag) {
+        this.continueFlag = false;
+      }
     },
     // main calculate function, infix to postfix
     calculateResult() {
@@ -108,7 +118,7 @@ export default {
           operandStack.push(element);
         }
       });
-      this.value = [operandStack[0]];
+      if (operandStack[0]) this.value = [operandStack[0]];
     },
     // helper to calculate value of simple expression
     calcHelper(op1, op2, operator) {

@@ -21,6 +21,7 @@ export default {
   padding: 1rem 1.5rem;
   text-align: right;
   background-color: var(--screen-bg);
+  color: var(--text-primary);
   border-radius: 0.5rem;
 }
 

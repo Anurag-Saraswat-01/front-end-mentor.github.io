@@ -20,20 +20,20 @@ export default {
   font-weight: 700;
   border: none;
   border-radius: 8px;
-  color: white;
   font-size: 18px;
 }
 
 .operator {
   background-color: var(--key-bg);
   box-shadow: 0px 0.25rem var(--key-shadow);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 32px;
 }
 
 .delete,
 .reset {
   background-color: var(--key-bg-utility);
+  color: white;
   box-shadow: 0px 0.25rem var(--key-shadow-utility);
   padding: 1rem 0.5rem;
 }
@@ -45,6 +45,7 @@ export default {
 .equal {
   padding: 1rem 0.5rem;
   background-color: var(--key-bg-equal);
+  color: var(--text-tertiary);
   box-shadow: 0px 0.25rem var(--key-shadow-equal);
   grid-column: 3/5;
 }
