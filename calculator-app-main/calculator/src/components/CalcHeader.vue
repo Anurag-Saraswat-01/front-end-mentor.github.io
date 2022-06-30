@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header {
   display: flex;
   align-items: center;
@@ -104,6 +104,12 @@ p {
   background-color: var(--key-bg-equal);
   position: absolute;
   border-radius: 1rem;
+}
+
+.slider:hover,
+.slider:active,
+.slider:focus {
+  background-color: var(--key-bg-equal-hover);
 }
 
 .slider.theme1 {

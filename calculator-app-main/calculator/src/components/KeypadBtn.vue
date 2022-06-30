@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn {
   padding: 0.5rem;
   font-weight: 700;
@@ -30,12 +30,27 @@ export default {
   font-size: 32px;
 }
 
+.operator:hover,
+.operator:active,
+.operator:focus {
+  background-color: var(--key-bg-hover);
+}
+
 .delete,
 .reset {
   background-color: var(--key-bg-utility);
   color: white;
   box-shadow: 0px 0.25rem var(--key-shadow-utility);
   padding: 1rem 0.5rem;
+}
+
+.delete:hover,
+.reset:hover,
+.delete:active,
+.reset:active,
+.delete:focus,
+.reset:focus {
+  background-color: var(--key-bg-utility-hover);
 }
 
 .reset {
@@ -48,5 +63,11 @@ export default {
   color: var(--text-tertiary);
   box-shadow: 0px 0.25rem var(--key-shadow-equal);
   grid-column: 3/5;
+}
+
+.equal:hover,
+.equal:focus,
+.equal:active {
+  background-color: var(--key-bg-equal-hover);
 }
 </style>

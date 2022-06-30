@@ -29,6 +29,12 @@ export default {
 }
 
 a {
-  color: var(--text-primary);
+  color: var(--key-bg-utility);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--key-bg-utility-hover);
 }
 </style>

@@ -41,6 +41,7 @@ export default {
     };
   },
   methods: {
+    // sends new theme to parent
     switchTheme(val) {
       this.$emit("switch-theme", val);
     },
@@ -73,12 +74,21 @@ export default {
       ) {
         this.continueFlag = true;
         const lastElement = this.value.pop();
-        const newElement = lastElement.concat(char);
+        let newElement;
+        if (lastElement) {
+          newElement = lastElement.concat(char);
+        } else {
+          newElement = "0".concat(char);
+        }
         this.value.push(newElement);
       } else if (["+", "-", "/", "x", "$"].includes(char)) {
         this.continueFlag = false;
         this.value.push(char);
       } else {
+        const lastElement = this.value.pop();
+        if (lastElement && lastElement !== "0") {
+          this.value.push(lastElement);
+        }
         this.value.push(char);
       }
     },

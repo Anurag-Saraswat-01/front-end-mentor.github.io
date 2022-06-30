@@ -44,10 +44,13 @@ export default {
   --toggle-keypad-bg: hsl(223, 31%, 20%);
   --screen-bg: hsl(224, 36%, 15%);
   --key-bg: hsl(30, 25%, 89%);
+  --key-bg-hover: hsl(30, 25%, 99%);
   --key-shadow: hsl(28, 16%, 65%);
   --key-bg-equal: hsl(6, 63%, 50%);
+  --key-bg-equal-hover: hsl(6, 63%, 60%);
   --key-shadow-equal: hsl(6, 70%, 34%);
   --key-bg-utility: hsl(225, 21%, 49%);
+  --key-bg-utility-hover: hsl(225, 21%, 59%);
   --key-shadow-utility: hsl(224, 28%, 35%);
   --text-primary: white;
   --text-secondary: hsl(221, 14%, 31%);
@@ -59,10 +62,13 @@ export default {
   --toggle-keypad-bg: hsl(0, 5%, 81%);
   --screen-bg: hsl(0, 0%, 93%);
   --key-bg: hsl(45, 7%, 89%);
+  --key-bg-hover: hsl(45, 7%, 99%);
   --key-shadow: hsl(35, 11%, 61%);
   --key-bg-equal: hsl(25, 98%, 40%);
+  --key-bg-equal-hover: hsl(25, 98%, 50%);
   --key-shadow-equal: hsl(25, 99%, 27%);
   --key-bg-utility: hsl(185, 42%, 37%);
+  --key-bg-utility-hover: hsl(185, 42%, 47%);
   --key-shadow-utility: hsl(185, 58%, 25%);
   --text-primary: hsl(60, 10%, 19%);
   --text-secondary: hsl(60, 10%, 19%);
@@ -73,10 +79,13 @@ export default {
   --toggle-keypad-bg: hsl(268, 71%, 12%);
   --screen-bg: hsl(268, 71%, 12%);
   --key-bg: hsl(268, 47%, 21%);
+  --key-bg-hover: hsl(268, 47%, 31%);
   --key-shadow: hsl(290, 70%, 36%);
   --key-bg-equal: hsl(176, 100%, 44%);
+  --key-bg-equal-hover: hsl(176, 100%, 54%);
   --key-shadow-equal: hsl(177, 92%, 70%);
   --key-bg-utility: hsl(281, 89%, 26%);
+  --key-bg-utility-hover: hsl(281, 89%, 36%);
   --key-shadow-utility: hsl(285, 91%, 52%);
   --text-primary: hsl(52, 100%, 62%);
   --text-secondary: hsl(52, 100%, 62%);
@@ -93,5 +102,17 @@ export default {
   padding: 1.5rem;
   background-color: var(--main-bg);
   color: white;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 2rem 6rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding: 2rem calc(50% - 200px);
+  }
 }
 </style>
