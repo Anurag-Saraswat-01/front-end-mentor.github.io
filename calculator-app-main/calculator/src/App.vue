@@ -112,7 +112,7 @@ export default {
 
 @media screen and (min-width: 1280px) {
   .container {
-    padding: 2rem calc(50% - 200px);
+    padding: 2rem calc(50% - 250px);
   }
 }
 </style>
