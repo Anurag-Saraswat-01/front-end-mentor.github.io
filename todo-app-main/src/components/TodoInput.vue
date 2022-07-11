@@ -1,13 +1,37 @@
 <template>
-  <div class="inputWrapper">
-    <div class="checkIcon"></div>
-    <input type="text" placeholder="Create a new todo..." />
-  </div>
+  <form class="inputWrapper" @submit="onSubmit">
+    <div class="checkIcon" @click="onSubmit">
+      <div class="checkIconInner"></div>
+    </div>
+    <label for="todo">
+      <input
+        id="todo"
+        type="text"
+        placeholder="Create a new todo..."
+        v-model="value"
+      />
+    </label>
+  </form>
 </template>
 
 <script>
 export default {
   name: "TodoInput",
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      if (this.value === "") {
+        return;
+      }
+      this.$emit("add-todo", this.value);
+      this.value = "";
+    },
+  },
 };
 </script>
 
@@ -25,16 +49,47 @@ export default {
 .checkIcon {
   height: 1.25rem;
   width: 1.25rem;
-  border: 1px solid var(--text-very-dark);
+  padding: 1px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.dark .checkIcon {
+  background: var(--text-very-dark);
+}
+
+.light .checkIcon {
+  background: var(--text-light);
+}
+
+.checkIcon:hover,
+.checkIcon:focus {
+  background: var(--check-background);
+  border: none;
+}
+
+.checkIconInner {
+  background-color: var(--todo-bg);
+  width: 100%;
+  height: 100%;
   border-radius: 100%;
 }
 
-input {
+label {
   flex-grow: 1;
+}
+
+input {
   background-color: inherit;
   border: none;
-  color: var(--text-dark);
   font-weight: 700;
+  color: var(--text-dark);
+  width: 100%;
+}
+
+.light input:focus-visible,
+.light input:active {
+  color: var(--text-very-dark);
 }
 
 input:focus-visible,

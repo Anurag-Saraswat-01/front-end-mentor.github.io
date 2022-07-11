@@ -1,11 +1,12 @@
 <template>
   <div class="todoWrapper">
-    <TodoInput />
+    <TodoInput @add-todo="addTodo" />
     <TodoList
       :todos="todos"
       @toggle-todo="toggleTodo"
       @delete-todo="deleteTodo"
       @clear-todos="$emit('clear-todos')"
+      @on-filter="onFilter"
     />
     <TodoFilters @on-filter="onFilter" />
   </div>
@@ -34,7 +35,10 @@ export default {
       this.$emit("toggle-todo", id);
     },
     deleteTodo(id) {
-      this.$emit("deleteTodo", id);
+      this.$emit("delete-todo", id);
+    },
+    addTodo(text) {
+      this.$emit("add-todo", text);
     },
   },
 };
@@ -46,5 +50,12 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+@media only screen and (min-width: 1280px) {
+  .todoWrapper {
+    margin: 3rem 0 2rem;
+    gap: 1.5rem;
+  }
 }
 </style>

@@ -13,9 +13,12 @@ export default {
   name: "TodoFilters",
   methods: {
     onClick(filter) {
+      console.log(filter);
       const applied = document.querySelector(".applied");
+      console.log(applied);
       applied.classList.remove("applied");
       const current = document.querySelector(`.todoFilter.${filter}`);
+      console.log(current);
       current.classList.add("applied");
       this.$emit("on-filter", filter);
     },
@@ -31,22 +34,42 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 1rem 1.25rem;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-dark);
-  border-radius: 0 0 0.25rem 0.25rem;
+  border-radius: 0.25rem;
 }
 
 .todoFilter {
   cursor: pointer;
 }
 
-.todoFilter:hover,
-.todoFilter:focus {
+.dark .todoFilter:hover,
+.dark .todoFilter:focus {
   color: var(--text-light);
+}
+
+.light .todoFilter:hover,
+.light .todoFilter:focus {
+  color: var(--text-light-hover);
 }
 
 .todoFilter.applied {
   color: var(--primary-blue);
+}
+
+.todoFilters:nth-child(2) {
+  display: none;
+}
+
+@media only screen and (min-width: 1280px) {
+  .todoFilters:last-child {
+    display: none;
+  }
+
+  .todoFilters:nth-child(2) {
+    display: flex;
+    padding: 0;
+  }
 }
 </style>

@@ -27,14 +27,20 @@ export default {
   color: var(--text-dark);
   text-align: center;
   font-size: 12px;
+  font-weight: 700;
 }
 
 a {
   color: inherit;
 }
 
-a:hover,
-a:focus {
+.dark a:hover,
+.dark a:focus {
   color: var(--text-light);
+}
+
+.light a:hover,
+.light a:focus {
+  color: var(--text-light-hover);
 }
 </style>

@@ -21,6 +21,8 @@ export default {
 
 .title {
   letter-spacing: 0.5rem;
+  font-size: 32px;
+  height: 32px;
 }
 
 .toggle {

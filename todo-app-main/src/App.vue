@@ -7,6 +7,7 @@
       @toggle-todo="toggleTodo"
       @delete-todo="deleteTodo"
       @clear-todos="clearTodos"
+      @add-todo="addTodo"
     />
     <TodoAttribution />
   </div>
@@ -25,30 +26,10 @@ export default {
   },
   data() {
     const theme = localStorage.getItem("todoTheme");
+    const todos = localStorage.getItem("todoList");
     return {
       theme: theme || "light",
-      todos: [
-        {
-          id: 1,
-          text: "Complete online JavaScript course",
-          status: "completed",
-        },
-        {
-          id: 2,
-          text: "Jog around the park 3x",
-          status: "active",
-        },
-        {
-          id: 3,
-          text: "10 minutes meditation",
-          status: "active",
-        },
-        {
-          id: 4,
-          text: "Read for 1 hour",
-          status: "active",
-        },
-      ],
+      todos: !todos || todos === "undefined" ? [] : JSON.parse(todos),
       filter: "all",
     };
   },
@@ -56,10 +37,8 @@ export default {
     onToggle() {
       if (this.theme == "dark") {
         this.theme = "light";
-        localStorage.setItem("todoTheme", "light");
       } else {
         this.theme = "dark";
-        localStorage.setItem("todoTheme", "dark");
       }
     },
     onFilter(filter) {
@@ -82,12 +61,29 @@ export default {
           }
         }
       });
+      localStorage.setItem("todoList", JSON.stringify(this.todos));
+    },
+    addTodo(text) {
+      const newTodo = {
+        id: Math.floor(Math.random() * 10e5),
+        text: text,
+        status: "active",
+      };
+      this.todos = [...this.todos, newTodo];
     },
     deleteTodo(id) {
       this.todos = this.todos.filter((todo) => todo.id !== id);
     },
     clearTodos() {
       this.todos = this.todos.filter((todo) => todo.status === "active");
+    },
+  },
+  watch: {
+    todos(newTodo) {
+      localStorage.setItem("todoList", JSON.stringify(newTodo));
+    },
+    theme(newTheme) {
+      localStorage.setItem("todoTheme", newTheme);
     },
   },
 };
@@ -139,6 +135,13 @@ export default {
   background-color: var(--main-bg);
   background-size: contain;
   padding: 2.5rem 1.5rem;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    padding: 5rem 3rem;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -148,6 +151,11 @@ export default {
 
   .dark {
     background-image: url("../src/assets/bg-desktop-dark.jpg");
+  }
+
+  .container {
+    padding: 4rem calc(50% - 300px + 1rem);
+    font-size: 14px;
   }
 }
 </style>
