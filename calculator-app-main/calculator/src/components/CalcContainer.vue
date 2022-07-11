@@ -10,7 +10,6 @@
           : valueToString(value)
       "
     />
-    {{ value }}
     <CalcKeypad
       @update-value="updateValue"
       @delete-value="deleteValue"
