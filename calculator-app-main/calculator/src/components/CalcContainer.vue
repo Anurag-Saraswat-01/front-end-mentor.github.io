@@ -10,6 +10,7 @@
           : valueToString(value)
       "
     />
+    {{ value }}
     <CalcKeypad
       @update-value="updateValue"
       @delete-value="deleteValue"
@@ -86,10 +87,14 @@ export default {
         this.value.push(char);
       } else {
         const lastElement = this.value.pop();
-        if (lastElement && lastElement !== "0") {
+        if (lastElement && ["+", "-", "/", "x", "$"].includes(lastElement)) {
           this.value.push(lastElement);
+          this.value.push(char);
+        } else if (lastElement && lastElement !== "0") {
+          this.value.push(lastElement + char);
+        } else {
+          this.value.push(char);
         }
-        this.value.push(char);
       }
     },
     // resets the calculator
@@ -124,6 +129,7 @@ export default {
             );
           }
           operatorStack.push(element);
+          console.log(operandStack, operatorStack);
         } else {
           operandStack.push(element);
         }
