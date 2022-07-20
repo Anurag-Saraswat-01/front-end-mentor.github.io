@@ -21,6 +21,7 @@ export default {
   border: none;
   border-radius: 8px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .operator {
