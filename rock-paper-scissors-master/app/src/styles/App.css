@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 4rem;
+  /* gap: 4rem; */
 }
 
 .rule-btn {
@@ -33,6 +33,6 @@
 }
 
 .play-container {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
 }

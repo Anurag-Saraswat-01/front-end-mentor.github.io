@@ -8,6 +8,14 @@ function App() {
   const [score, setScore] = useState(0);
   const [rules, setRules] = useState(false);
 
+  const incrementScore = () => {
+    setScore(score + 1);
+  };
+
+  const decrementScore = () => {
+    setScore(score - 1);
+  };
+
   const displayRules = () => {
     setRules(true);
   };
@@ -21,7 +29,10 @@ function App() {
       {rules && <RuleModal hideRules={hideRules} />}
       <div className="container">
         <Header score={score} />
-        <PlayContainer />
+        <PlayContainer
+          incrementScore={incrementScore}
+          decrementScore={decrementScore}
+        />
         <button className="rule-btn" onClick={displayRules}>
           RULES
         </button>

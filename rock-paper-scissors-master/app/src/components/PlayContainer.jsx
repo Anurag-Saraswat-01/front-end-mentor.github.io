@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ChoiceContainer from "./ChoiceContainer";
+import ResultContainer from "./ResultContainer";
 
-const PlayContainer = () => {
-  // 1 -> player choice
-  // 2 -> pc choice
-  // 3 -> result
-  const [step, setStep] = useState(1);
+const PlayContainer = ({ incrementScore, decrementScore }) => {
+  // 0 -> player choice
+  // 1 -> result
+  const [stage, setStage] = useState(0);
+  const [playerChoice, setPlayerChoice] = useState("");
+
+  const playAgain = () => {
+    setPlayerChoice("");
+  };
+
+  useEffect(() => {
+    if (playerChoice === "") {
+      setStage(0);
+    } else {
+      setStage(1);
+    }
+  }, [playerChoice]);
 
   return (
     <div className="play-container">
-      <ChoiceContainer />
+      {stage === 0 ? (
+        <ChoiceContainer setPlayerChoice={setPlayerChoice} />
+      ) : (
+        <ResultContainer
+          playerChoice={playerChoice}
+          playAgain={playAgain}
+          incrementScore={incrementScore}
+          decrementScore={decrementScore}
+        />
+      )}
     </div>
   );
 };
