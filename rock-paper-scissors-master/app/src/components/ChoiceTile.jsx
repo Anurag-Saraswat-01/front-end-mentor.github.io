@@ -3,14 +3,13 @@ import PaperIcon from "../assets/icon-paper.svg";
 import ScissorsIcon from "../assets/icon-scissors.svg";
 import "../styles/ChoiceTile.css";
 
-const ChoiceTile = ({ tile, setPlayerChoice, win }) => {
+const ChoiceTile = ({ tile, setPlayerChoice, result }) => {
   return (
     tile !== "" && (
       <div
-        className={`choice-tile ${tile}-tile ${win ? "win-tile" : ""}`}
+        className={`choice-tile ${tile}-tile ${result ? "result-tile" : ""}`}
         onClick={() => setPlayerChoice(tile)}
       >
-        {win}
         <div className="choice-tile-inner">
           {tile === "rock" ? (
             <img

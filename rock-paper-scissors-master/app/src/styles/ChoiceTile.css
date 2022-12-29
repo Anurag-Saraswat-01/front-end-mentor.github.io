@@ -33,3 +33,21 @@
 .tile-icon {
   width: 40px;
 }
+
+.result-tile {
+  animation: shadow 0.2s forwards linear;
+}
+
+@keyframes shadow {
+  33% {
+    box-shadow: 0 0 0 0.75rem hsla(0, 0%, 100%, 0.05);
+  }
+  66% {
+    box-shadow: 0 0 0 0.75rem hsla(0, 0%, 100%, 0.05),
+      0 0 0 2rem hsla(0, 0%, 100%, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0.75rem hsla(0, 0%, 100%, 0.05),
+      0 0 0 2rem hsla(0, 0%, 100%, 0.05), 0 0 0 3.5rem hsla(0, 0%, 100%, 0.05);
+  }
+}
