@@ -35,4 +35,29 @@
 .play-container {
   /* height: 100%; */
   width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .container {
+    padding: 2rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  .play-container {
+    height: 100%;
+  }
+
+  .rule-btn {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+  }
 }

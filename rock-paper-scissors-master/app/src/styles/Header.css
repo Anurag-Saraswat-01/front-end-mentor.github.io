@@ -1,7 +1,7 @@
 .header {
   padding: 1rem;
   border: 4px solid var(--header-outline);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,8 @@
   align-items: center;
   justify-content: center;
   /* gap: 0.5rem; */
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
+  letter-spacing: 1px;
 }
 
 .score-title {
@@ -33,4 +34,19 @@
   color: var(--dark-text);
   font-weight: 700;
   font-size: 36px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    width: 720px;
+  }
+
+  .logo {
+    width: 150px;
+    padding: 0;
+  }
+
+  .score-card {
+    height: 100%;
+  }
 }

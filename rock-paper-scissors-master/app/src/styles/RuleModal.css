@@ -1,5 +1,14 @@
-.rules {
+.rules-backdrop {
   position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background: hsla(0, 0%, 0%, 0.5);
+}
+
+.rules {
   background: white;
   height: 100%;
   width: 100%;
@@ -8,6 +17,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .rules-title {
@@ -16,6 +26,48 @@
   font-size: 24px;
 }
 
-.rules-close-icon {
+.rules-close-icon-desktop,
+.rules-close-icon-mobile {
   cursor: pointer;
+}
+
+.rules-close-icon-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  .rules {
+    height: fit-content;
+    width: 360px;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .rules {
+    width: 450px;
+    height: fit-content;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .rules-close-icon-mobile {
+    display: none;
+  }
+
+  .rules-close-icon-desktop {
+    display: inline;
+  }
+
+  .rules-title-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .rules-title {
+    font-size: 32px;
+  }
 }
